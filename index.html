@@ -1,0 +1,2074 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS5kK5/vMz3TY/gXHlii6R5IuZDAw=="
+      crossorigin=""
+    />
+
+    <!-- Leaflet JavaScript -->
+    <script
+      src="https://unpkg.com/leaflet/dist/leaflet.js"
+      integrity="sha512-gZwIG9F5k3aocxEujzLYZnuZP5JBK9q/Oivk0nFVqR/+L4v1/HMv6fk2cFLpRjGczP9T5rW+zvQubqFgNzO18Q=="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- side nav -->
+    <div class="main-section">
+      <div class="side-nav">
+        <button class="hamburger">
+          <div class="bar"></div>
+        </button>
+        <div class="nav-items">
+          <div class="nav-box nav-box-active">
+            <svg
+              width="20"
+              height="22"
+              viewBox="0 0 20 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_1_21893)">
+                <path
+                  d="M1 8L10 1L19 8V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V8Z"
+                  stroke="#7764E4"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7 21V11H13V21"
+                  stroke="#7764E4"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21893">
+                  <rect width="20" height="22" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="22"
+              height="18"
+              viewBox="0 0 22 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8" clip-path="url(#clip0_1_21896)">
+                <path
+                  d="M3 1H19C20.1 1 21 1.9 21 3V15C21 16.1 20.1 17 19 17H3C1.9 17 1 16.1 1 15V3C1 1.9 1.9 1 3 1Z"
+                  stroke="#F53C56"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M21 3L11 10L1 3"
+                  stroke="#F53C56"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21896">
+                  <rect width="22" height="18" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="20"
+              height="23"
+              viewBox="0 0 20 23"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8" clip-path="url(#clip0_1_21899)">
+                <line
+                  x1="13.1342"
+                  y1="8.79641"
+                  x2="5.86673"
+                  y2="4.60553"
+                  stroke="#11CDEF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M19 15.0297V7.02969C18.9993 6.31589 18.6182 5.65659 18 5.29969L11 1.29969C10.3812 0.942422 9.6188 0.942422 9 1.29969L2 5.29969C1.38183 5.65659 1.00073 6.31589 1 7.02969V15.0297C1.00073 15.7435 1.38183 16.4028 2 16.7597L9 20.7597C9.6188 21.117 10.3812 21.117 11 20.7597L18 16.7597C18.6182 16.4028 18.9993 15.7435 19 15.0297Z"
+                  stroke="#11CDEF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M1.27002 5.9895L10 11.0395L18.73 5.9895"
+                  stroke="#11CDEF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="9"
+                  y1="20.1096"
+                  x2="9"
+                  y2="12.0296"
+                  stroke="#11CDEF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21899">
+                  <rect width="20" height="22.1096" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="18"
+              height="22"
+              viewBox="0 0 18 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8" clip-path="url(#clip0_1_21904)">
+                <path
+                  d="M11 1H3C1.89543 1 1 1.89543 1 3V19C1 20.1046 1.89543 21 3 21H15C16.1046 21 17 20.1046 17 19V7L11 1Z"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11 1V7H17"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="12"
+                  y1="13"
+                  x2="6"
+                  y2="13"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="12"
+                  y1="17"
+                  x2="6"
+                  y2="17"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M7 8H6H5"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21904">
+                  <rect width="18" height="22" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8" clip-path="url(#clip0_1_21910)">
+                <path
+                  d="M19 13C19 14.1046 18.1046 15 17 15H5L1 19V3C1 1.89543 1.89543 1 3 1H17C18.1046 1 19 1.89543 19 3V13Z"
+                  stroke="#FEB969"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21910">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="20"
+              height="22"
+              viewBox="0 0 20 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8">
+                <path
+                  d="M1 5C1 3.89543 1.89543 3 3 3H17C18.1046 3 19 3.89543 19 5V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V5Z"
+                  stroke="#F53C56"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="15"
+                  y1="2"
+                  x2="15"
+                  y2="4"
+                  stroke="#F53C56"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="7"
+                  y1="2"
+                  x2="7"
+                  y2="4"
+                  stroke="#F53C56"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <line
+                  x1="2"
+                  y1="8"
+                  x2="18"
+                  y2="8"
+                  stroke="#F53C56"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="18"
+              height="20"
+              viewBox="0 0 18 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8" clip-path="url(#clip0_1_21917)">
+                <path
+                  d="M17 19V17C17 14.7909 15.2091 13 13 13H5C2.79086 13 1 14.7909 1 17V19"
+                  stroke="#11CDEF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="9"
+                  cy="5"
+                  r="4"
+                  stroke="#11CDEF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21917">
+                  <rect width="18" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <div class="nav-box">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g opacity="0.8" clip-path="url(#clip0_1_21920)">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="3"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M19.4 15C19.1277 15.6171 19.2583 16.3378 19.73 16.82L19.79 16.88C20.1656 17.2551 20.3766 17.7642 20.3766 18.295C20.3766 18.8258 20.1656 19.3349 19.79 19.71C19.4149 20.0856 18.9058 20.2966 18.375 20.2966C17.8442 20.2966 17.3351 20.0856 16.96 19.71L16.9 19.65C16.4178 19.1783 15.6971 19.0477 15.08 19.32C14.4755 19.5791 14.0826 20.1724 14.08 20.83L14.08 21C14.08 22.1046 13.1846 23 12.08 23C10.9754 23 10.08 22.1046 10.08 21V20.91C10.0642 20.2327 9.63587 19.6339 9 19.4C8.38291 19.1277 7.66219 19.2583 7.18 19.73L7.12 19.79C6.74486 20.1656 6.23582 20.3766 5.705 20.3766C5.17418 20.3766 4.66514 20.1656 4.29 19.79C3.91445 19.4149 3.70343 18.9058 3.70343 18.375C3.70343 17.8442 3.91445 17.3351 4.29 16.96L4.35 16.9C4.82167 16.4178 4.95235 15.6971 4.68 15.08C4.42093 14.4755 3.82764 14.0826 3.17 14.08L3 14.08C1.89543 14.08 1 13.1846 1 12.08C1 10.9754 1.89543 10.08 3 10.08H3.09C3.76733 10.0642 4.36613 9.63587 4.6 9C4.87235 8.38291 4.74167 7.66219 4.27 7.18L4.21 7.12C3.83445 6.74486 3.62343 6.23582 3.62343 5.705C3.62343 5.17418 3.83445 4.66514 4.21 4.29C4.58514 3.91445 5.09418 3.70343 5.625 3.70343C6.15582 3.70343 6.66486 3.91445 7.04 4.29L7.1 4.35C7.58219 4.82167 8.30291 4.95235 8.92 4.68L9 4.68C9.60447 4.42093 9.99738 3.82764 10 3.17V3C10 1.89543 10.8954 1 12 1C13.1046 1 14 1.89543 14 3V3.09C14.0026 3.74764 14.3955 4.34093 15 4.6C15.6171 4.87235 16.3378 4.74167 16.82 4.27L16.88 4.21C17.2551 3.83445 17.7642 3.62343 18.295 3.62343C18.8258 3.62343 19.3349 3.83445 19.71 4.21C20.0856 4.58514 20.2966 5.09418 20.2966 5.625C20.2966 6.15582 20.0856 6.66486 19.71 7.04L19.65 7.1C19.1783 7.58219 19.0477 8.30291 19.32 8.92V9C19.5791 9.60447 20.1724 9.99738 20.83 10H21C22.1046 10 23 10.8954 23 12C23 13.1046 22.1046 14 21 14H20.91C20.2524 14.0026 19.6591 14.3955 19.4 15Z"
+                  stroke="#FB6340"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_1_21920">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- hero-section -->
+      <div class="all-wrap">
+        <section class="hero-section">
+          <div class="hero-nav">
+            <div class="search-box">
+              <input type="text" class="search-input" placeholder="Search" />
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="search-icon"
+              >
+                <g opacity="0.8" clip-path="url(#clip0_1_21827)">
+                  <circle
+                    cx="7.69006"
+                    cy="7.69006"
+                    r="6.88"
+                    stroke="#172B4D"
+                    stroke-width="1.62"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <line
+                    x1="14.7758"
+                    y1="16.1899"
+                    x2="11.8666"
+                    y2="13.2807"
+                    stroke="#172B4D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_21827">
+                    <rect width="16.5355" height="16.5355" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div class="right-nav-items">
+              <svg
+                width="145"
+                height="36"
+                viewBox="0 0 145 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <rect width="145" height="36" fill="url(#pattern0_1_21415)" />
+                <defs>
+                  <pattern
+                    id="pattern0_1_21415"
+                    patternContentUnits="objectBoundingBox"
+                    width="1"
+                    height="1"
+                  >
+                    <use
+                      xlink:href="#image0_1_21415"
+                      transform="matrix(0.003003 0 0 0.0120954 0 -0.00800801)"
+                    />
+                  </pattern>
+                  <image
+                    id="image0_1_21415"
+                    width="333"
+                    height="84"
+                    xlink:href="data:image/png;base64,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"
+                  />
+                </defs>
+              </svg>
+              <a href="javascript:void(0)">
+                <svg
+                  width="20"
+                  height="22"
+                  viewBox="0 0 20 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1_21830)">
+                    <path
+                      d="M16 7C16 3.68629 13.3137 1 10 1C6.68629 1 4 3.68629 4 7C4 14 1 16 1 16H19C19 16 16 14 16 7Z"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M11.73 20C11.3722 20.6168 10.7131 20.9965 10 20.9965C9.28695 20.9965 8.62782 20.6168 8.27002 20"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_21830">
+                      <rect width="20" height="21.9965" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+              <a href="javascript:void(0)">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="30"
+                  height="30"
+                  id="question"
+                >
+                  <g>
+                    <g>
+                      <rect
+                        width="24"
+                        height="24"
+                        opacity="0"
+                        transform="rotate(180 12 12)"
+                      ></rect>
+                      <path
+                        d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"
+                        fill="#fff"
+                      ></path>
+                      <path
+                        d="M12 6a3.5 3.5 0 0 0-3.5 3.5 1 1 0 0 0 2 0A1.5 1.5 0 1 1 12 11a1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.16A3.49 3.49 0 0 0 12 6z"
+                        fill="#fff"
+                      ></path>
+                      <circle cx="12" cy="17" r="1" fill="#fff"></circle>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+              <a class="profile-wrap" href="javascript:void(0)">
+                <img
+                  src="./images/oval-5.png"
+                  alt="profile"
+                  class="profile-pic"
+                />
+                <p class="profile-name">Laura Smith</p>
+              </a>
+            </div>
+          </div>
+          <div class="flex home-wrap">
+            <p class="home-txt txt-white">Home</p>
+            <div class="flex">
+              <svg
+                width="20"
+                height="22"
+                viewBox="0 0 20 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_1_21837)">
+                  <path
+                    d="M1 8L10 1L19 8V19C19 20.1046 18.1046 21 17 21H3C1.89543 21 1 20.1046 1 19V8Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7 21V11H13V21"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_21837">
+                    <rect width="20" height="22" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="txt-white second-home-txt">Home</p>
+              <span class="txt-white hyphen">-</span>
+              <p class="txt-white dashboard-txt">Dashboard</p>
+            </div>
+          </div>
+          <div class="graph-card-section flex">
+            <div class="box-graph">
+              <div class="flex graph-card-wrap">
+                <div>
+                  <p class="total-txt">TOTAL INBOND</p>
+                  <p class="price-txt">123.456</p>
+                  <span class="price-txt k-txt">K</span>
+                </div>
+                <div class="oval oval-green-clr">
+                  <svg
+                    width="22"
+                    height="12"
+                    viewBox="0 0 22 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="wave-svg"
+                  >
+                    <g clip-path="url(#clip0_1_21840)">
+                      <path
+                        d="M22 0L12.5 9.5L7.5 4.5L0 12"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16 0H22V6"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1_21840">
+                        <rect width="22" height="12" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt">+3.48%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <div class="box-graph">
+              <div class="flex graph-card-wrap">
+                <div>
+                  <p class="total-txt">TOTAL OUTBOND</p>
+                  <p class="price-txt">2.345</p>
+                  <span class="price-txt k-txt">K</span>
+                </div>
+                <div class="oval oval-red-clr">
+                  <svg
+                    width="22"
+                    height="12"
+                    viewBox="0 0 22 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="wave-svg"
+                  >
+                    <g clip-path="url(#clip0_1_21843)">
+                      <path
+                        d="M22 12L12.5 2.5L7.5 7.5L0 0"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M16 12H22V6"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1_21843">
+                        <rect width="22" height="12" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt hike-red-txt">-1.48%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <div class="box-graph">
+              <div class="flex graph-card-wrap">
+                <div>
+                  <p class="total-txt">TOTAL DOCK IN USE</p>
+                  <p class="price-txt">9240</p>
+                  <span class="price-txt k-txt">USD</span>
+                </div>
+                <div class="oval oval-dark-green-clr">
+                  <svg
+                    width="12"
+                    height="22"
+                    viewBox="0 0 12 22"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="wave-svg"
+                  >
+                    <g clip-path="url(#clip0_1_21846)">
+                      <line
+                        x1="7"
+                        y1="1"
+                        x2="7"
+                        y2="21"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M11 4H3.5C1.567 4 0 5.567 0 7.5C0 9.433 1.567 11 3.5 11L8.5 11C10.433 11 12 12.567 12 14.5C12 16.433 10.433 18 8.5 18H0"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1_21846">
+                        <rect width="12" height="22" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt">+6.48%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <div class="box-graph">
+              <div class="flex graph-card-wrap">
+                <div>
+                  <p class="total-txt">TOTAL DELIVERIES</p>
+                  <p class="price-txt">88.65%</p>
+                </div>
+                <div class="oval oval-blue-clr">
+                  <svg
+                    width="14"
+                    height="18"
+                    viewBox="0 0 14 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="wave-svg"
+                  >
+                    <g clip-path="url(#clip0_1_21849)">
+                      <line
+                        x1="12"
+                        y1="16"
+                        x2="12"
+                        y2="8"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <line
+                        x1="6"
+                        y1="16"
+                        x2="6"
+                        y2="2"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <line
+                        y1="16"
+                        y2="12"
+                        stroke="white"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_1_21849">
+                        <rect width="14" height="18" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt">+2.48%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Second section -->
+        <section class="main-wrapper">
+          <div>
+            <div class="margin-wrap">
+              <p class="ai-text">AI Camera Counting | by facility</p>
+              <button class="addition-oval">
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="add-svg"
+                >
+                  <g opacity="0.4" filter="url(#filter0_b_1_21496)">
+                    <path
+                      d="M13.0001 7.99986H8.00002V13.0002C8.00002 13.552 7.55233 14 7.00008 14C6.44783 14 6.00007 13.552 6.00007 13.0002V7.99986H1.00011C0.44778 7.99986 0 7.55224 0 7.00002C0 6.44784 0.44778 6.00009 1.00011 6.00009H6.00007V0.99993C6.00007 0.447705 6.44783 0 7.00008 0C7.55233 0 8.00002 0.447705 8.00002 0.99993V6.00009H13.0001C13.5524 6.00009 14 6.44784 14 7.00002C14 7.55224 13.5524 7.99986 13.0001 7.99986Z"
+                      fill="#172B4D"
+                    />
+                  </g>
+                  <defs>
+                    <filter
+                      id="filter0_b_1_21496"
+                      x="-5"
+                      y="-5"
+                      width="24"
+                      height="24"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feGaussianBlur
+                        in="BackgroundImageFix"
+                        stdDeviation="2.5"
+                      />
+                      <feComposite
+                        in2="SourceAlpha"
+                        operator="in"
+                        result="effect1_backgroundBlur_1_21496"
+                      />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="effect1_backgroundBlur_1_21496"
+                        result="shape"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+            <div class="flex second-fold">
+              <div id="map" class="map-section">
+                <img src="./images/map.png" class="map-img" />
+              </div>
+              <div class="performance-graph">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="facility-txt">FACILITY</p>
+                <div>
+                  <div class="txt-white flex perform-wrapper">
+                    <p>FREMONT</p>
+                    <div class="flex">
+                      <img src="./images/ai-img.png" class="ai-img" />
+                      <p class="out-of-txt">750 out of 1000</p>
+                      <a class="more-btn" href="javascript:void(0)">
+                        <svg
+                          width="5"
+                          height="19"
+                          viewBox="0 0 5 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_1_21987)">
+                            <circle
+                              cx="2.08496"
+                              cy="9.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="2.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="16.7598"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1_21987">
+                              <rect
+                                width="4"
+                                height="18"
+                                fill="white"
+                                transform="translate(0.0849609 0.759766)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="percentage-graph">
+                    <div class="fill fill-purple"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="txt-white flex perform-wrapper">
+                    <p>LOS ANGELSE</p>
+                    <div class="flex">
+                      <img src="./images/ai-img.png" class="ai-img" />
+                      <p class="out-of-txt">400 out of 1000</p>
+                      <a class="more-btn" href="javascript:void(0)">
+                        <svg
+                          width="5"
+                          height="19"
+                          viewBox="0 0 5 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_1_21987)">
+                            <circle
+                              cx="2.08496"
+                              cy="9.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="2.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="16.7598"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1_21987">
+                              <rect
+                                width="4"
+                                height="18"
+                                fill="white"
+                                transform="translate(0.0849609 0.759766)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="percentage-graph">
+                    <div class="fill fill-green"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="txt-white flex perform-wrapper">
+                    <p>NEW YORK</p>
+                    <div class="flex">
+                      <img src="./images/ai-img.png" class="ai-img" />
+                      <p class="out-of-txt">600 out of 1000</p>
+                      <a class="more-btn" href="javascript:void(0)">
+                        <svg
+                          width="5"
+                          height="19"
+                          viewBox="0 0 5 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_1_21987)">
+                            <circle
+                              cx="2.08496"
+                              cy="9.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="2.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="16.7598"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1_21987">
+                              <rect
+                                width="4"
+                                height="18"
+                                fill="white"
+                                transform="translate(0.0849609 0.759766)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="percentage-graph">
+                    <div class="fill fill-yellow"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="txt-white flex perform-wrapper">
+                    <p class="total-txt-2">TOTAL</p>
+                    <div class="flex">
+                      <img
+                        src="./images/ai-img.png"
+                        class="ai-img left-margin"
+                      />
+                      <p class="out-of-txt">1750 out of 1000</p>
+                      <a class="more-btn" href="javascript:void(0)">
+                        <svg
+                          width="5"
+                          height="19"
+                          viewBox="0 0 5 19"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g clip-path="url(#clip0_1_21987)">
+                            <circle
+                              cx="2.08496"
+                              cy="9.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="2.75977"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <circle
+                              cx="2.08496"
+                              cy="16.7598"
+                              r="1"
+                              stroke="#FCFDFF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_1_21987">
+                              <rect
+                                width="4"
+                                height="18"
+                                fill="white"
+                                transform="translate(0.0849609 0.759766)"
+                              />
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="percentage-graph">
+                    <div class="fill fill-red"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="dashboard-oval">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1_22017)">
+                    <rect
+                      x="1"
+                      y="1"
+                      width="7"
+                      height="7"
+                      stroke="#939DAC"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="12"
+                      y="1"
+                      width="7"
+                      height="7"
+                      stroke="#939DAC"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="12"
+                      y="12"
+                      width="7"
+                      height="7"
+                      stroke="#939DAC"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <rect
+                      x="1"
+                      y="12"
+                      width="7"
+                      height="7"
+                      stroke="#939DAC"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_22017">
+                      <rect width="20" height="20" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Third section -->
+        <section class="location-card-section main-wrapper-2">
+          <div class="location-card-wrapper flex">
+            <div class="box-graph location-card">
+              <div class="flex graph-card-wrap">
+                <div class="w-full">
+                  <div class="flex heading-wrap">
+                    <p class="location-head-txt">FREMONT 1</p>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        id="info"
+                        width="28"
+                        height="28"
+                      >
+                        <g fill="#231f20">
+                          <path
+                            d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                            fill="#939DAC"
+                          ></path>
+                          <path
+                            d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                            fill="#939DAC"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex location-card-wrap">
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">AI Camera</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">RFID</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">TOTAL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt">+3.48%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <div class="box-graph location-card">
+              <div class="flex graph-card-wrap">
+                <div class="w-full">
+                  <div class="flex heading-wrap">
+                    <p class="location-head-txt">FREMONT 2</p>
+                    <div class="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        id="info"
+                        width="28"
+                        height="28"
+                      >
+                        <g fill="#231f20">
+                          <path
+                            d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                            fill="#939DAC"
+                          ></path>
+                          <path
+                            d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                            fill="#939DAC"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex location-card-wrap">
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">AI Camera</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">RFID</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">TOTAL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt">+7.48%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <div class="box-graph location-card">
+              <div class="flex graph-card-wrap">
+                <div class="w-full">
+                  <div class="flex heading-wrap">
+                    <p class="location-head-txt">FREMONT 3</p>
+                    <div class="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        id="info"
+                        width="28"
+                        height="28"
+                      >
+                        <g fill="#231f20">
+                          <path
+                            d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                            fill="#939DAC"
+                          ></path>
+                          <path
+                            d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                            fill="#939DAC"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex location-card-wrap">
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">AI Camera</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">RFID</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">TOTAL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt hike-red-txt">-5.68%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <div class="box-graph location-card">
+              <div class="flex graph-card-wrap">
+                <div class="w-full">
+                  <div class="flex heading-wrap">
+                    <p class="location-head-txt">FREMONT 1</p>
+                    <div class="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                        id="info"
+                        width="28"
+                        height="28"
+                      >
+                        <g fill="#231f20">
+                          <path
+                            d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                            fill="#939DAC"
+                          ></path>
+                          <path
+                            d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                            fill="#939DAC"
+                          ></path>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="flex location-card-wrap">
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">AI Camera</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">RFID</span>
+                    </div>
+                    <div class="location-center-wrap">
+                      <p class="id-txt">250</p>
+                      <span class="id-sub-txt">TOTAL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="time-wrap flex">
+                <p class="hike-percentage-txt">+9.18%</p>
+                <p class="since-txt">Since last month</p>
+              </div>
+            </div>
+            <button class="addition-oval">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="add-svg"
+              >
+                <g opacity="0.4" filter="url(#filter0_b_1_21496)">
+                  <path
+                    d="M13.0001 7.99986H8.00002V13.0002C8.00002 13.552 7.55233 14 7.00008 14C6.44783 14 6.00007 13.552 6.00007 13.0002V7.99986H1.00011C0.44778 7.99986 0 7.55224 0 7.00002C0 6.44784 0.44778 6.00009 1.00011 6.00009H6.00007V0.99993C6.00007 0.447705 6.44783 0 7.00008 0C7.55233 0 8.00002 0.447705 8.00002 0.99993V6.00009H13.0001C13.5524 6.00009 14 6.44784 14 7.00002C14 7.55224 13.5524 7.99986 13.0001 7.99986Z"
+                    fill="#172B4D"
+                  />
+                </g>
+                <defs>
+                  <filter
+                    id="filter0_b_1_21496"
+                    x="-5"
+                    y="-5"
+                    width="24"
+                    height="24"
+                    filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB"
+                  >
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feGaussianBlur
+                      in="BackgroundImageFix"
+                      stdDeviation="2.5"
+                    />
+                    <feComposite
+                      in2="SourceAlpha"
+                      operator="in"
+                      result="effect1_backgroundBlur_1_21496"
+                    />
+                    <feBlend
+                      mode="normal"
+                      in="SourceGraphic"
+                      in2="effect1_backgroundBlur_1_21496"
+                      result="shape"
+                    />
+                  </filter>
+                </defs>
+              </svg>
+            </button>
+          </div>
+        </section>
+        <!-- fourth section -->
+        <section class="video-section main-wrapper-2">
+          <iframe
+            src="https://player.vimeo.com/video/89494078"
+            width="30%"
+            height="360"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            class="videos"
+          ></iframe>
+          <iframe
+            src="https://player.vimeo.com/video/89494078"
+            width="30%"
+            height="360"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            class="videos"
+          ></iframe>
+          <iframe
+            src="https://player.vimeo.com/video/89494078"
+            width="30%"
+            height="360"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            class="videos"
+          ></iframe>
+        </section>
+
+        <!-- Fifth section -->
+        <section class="company-record-section main-wrapper-2">
+          <div class="record-heading flex">
+            <p class="heading">Latest Deliveries | Global</p>
+            <button class="attachment-oval">
+              <svg
+                height="800px"
+                width="800px"
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 280.067 280.067"
+                xml:space="preserve"
+                fill=""
+                stroke=""
+                class="attachment-svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <path
+                      style="fill: #9398ac"
+                      d="M149.823,257.142c-31.398,30.698-81.882,30.576-113.105-0.429 c-31.214-30.987-31.337-81.129-0.42-112.308l-0.026-0.018L149.841,31.615l14.203-14.098c23.522-23.356,61.65-23.356,85.172,0 s23.522,61.221,0,84.586l-125.19,123.02l-0.044-0.035c-15.428,14.771-40.018,14.666-55.262-0.394 c-15.244-15.069-15.34-39.361-0.394-54.588l-0.044-0.053l13.94-13.756l69.701-68.843l13.931,13.774l-83.632,82.599 c-7.701,7.596-7.701,19.926,0,27.53s20.188,7.604,27.88,0L235.02,87.987l-0.035-0.026l0.473-0.403 c15.682-15.568,15.682-40.823,0-56.39s-41.094-15.568-56.776,0l-0.42,0.473l-0.026-0.018l-14.194,14.089L50.466,158.485 c-23.522,23.356-23.522,61.221,0,84.577s61.659,23.356,85.163,0l99.375-98.675l14.194-14.089l14.194,14.089l-14.194,14.098 l-99.357,98.675C149.841,257.159,149.823,257.142,149.823,257.142z"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </div>
+          <div>
+            <div class="record-title flex">
+              <div class="flex first-col">
+                <p>COMPANY</p>
+                <svg
+                  width="6"
+                  height="14"
+                  viewBox="0 0 6 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="record-heading-svg"
+                >
+                  <g clip-path="url(#clip0_1_22063)">
+                    <path
+                      d="M0.401855 10.4019L2.99999 12.5981L5.59812 10.4019"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <g clip-path="url(#clip1_1_22063)">
+                    <path
+                      d="M5.59812 2.59812L2.99999 0.401855L0.401855 2.59812"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_22063">
+                      <rect
+                        width="5.62611"
+                        height="3.21492"
+                        fill="white"
+                        transform="translate(0 10)"
+                      />
+                    </clipPath>
+                    <clipPath id="clip1_1_22063">
+                      <rect width="5.62611" height="3.21492" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="second-col">
+                <p>CREATED AT</p>
+              </div>
+              <div class="flex third-col">
+                <p>STATUS</p>
+                <svg
+                  width="6"
+                  height="14"
+                  viewBox="0 0 6 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="record-heading-svg"
+                >
+                  <g clip-path="url(#clip0_1_22063)">
+                    <path
+                      d="M0.401855 10.4019L2.99999 12.5981L5.59812 10.4019"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <g clip-path="url(#clip1_1_22063)">
+                    <path
+                      d="M5.59812 2.59812L2.99999 0.401855L0.401855 2.59812"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_22063">
+                      <rect
+                        width="5.62611"
+                        height="3.21492"
+                        fill="white"
+                        transform="translate(0 10)"
+                      />
+                    </clipPath>
+                    <clipPath id="clip1_1_22063">
+                      <rect width="5.62611" height="3.21492" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="flex fourth-col">
+                <p>UNITS</p>
+                <svg
+                  width="6"
+                  height="14"
+                  viewBox="0 0 6 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="record-heading-svg"
+                >
+                  <g clip-path="url(#clip0_1_22063)">
+                    <path
+                      d="M0.401855 10.4019L2.99999 12.5981L5.59812 10.4019"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <g clip-path="url(#clip1_1_22063)">
+                    <path
+                      d="M5.59812 2.59812L2.99999 0.401855L0.401855 2.59812"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_22063">
+                      <rect
+                        width="5.62611"
+                        height="3.21492"
+                        fill="white"
+                        transform="translate(0 10)"
+                      />
+                    </clipPath>
+                    <clipPath id="clip1_1_22063">
+                      <rect width="5.62611" height="3.21492" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <div class="fifth-col">
+                <p>TEAM</p>
+              </div>
+              <div class="flex sixth-col">
+                <p>COMPLETION</p>
+                <svg
+                  width="6"
+                  height="14"
+                  viewBox="0 0 6 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="record-heading-svg"
+                >
+                  <g clip-path="url(#clip0_1_22063)">
+                    <path
+                      d="M0.401855 10.4019L2.99999 12.5981L5.59812 10.4019"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <g clip-path="url(#clip1_1_22063)">
+                    <path
+                      d="M5.59812 2.59812L2.99999 0.401855L0.401855 2.59812"
+                      stroke="#11CDEF"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_22063">
+                      <rect
+                        width="5.62611"
+                        height="3.21492"
+                        fill="white"
+                        transform="translate(0 10)"
+                      />
+                    </clipPath>
+                    <clipPath id="clip1_1_22063">
+                      <rect width="5.62611" height="3.21492" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <!-- row one -->
+            <div class="record-data flex">
+              <div class="flex first-col">
+                <img src="./images/profile-1.png" class="record-profil-pic" />
+                <p class="profile-txt">FedEx</p>
+              </div>
+              <div class="second-col">
+                <p>20/03/2020</p>
+              </div>
+              <div class="flex third-col">
+                <div class="progress-dot pending-dot"></div>
+                <p>Pending</p>
+              </div>
+              <div class="flex fourth-col">
+                <p>100</p>
+              </div>
+              <div class="fifth-col">
+                <img src="./images/oval-1.png" />
+                <img src="./images/oval-5.png" />
+                <img src="./images/oval-2.png" />
+              </div>
+              <div class="flex sixth-col">
+                <p>20%</p>
+                <div class="progress-bar">
+                  <div class="fill fill-red-2"></div>
+                </div>
+              </div>
+              <a class="more-btn" href="javascript:void(0)">
+                <svg
+                  width="5"
+                  height="19"
+                  viewBox="0 0 5 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1_21987)">
+                    <circle
+                      cx="2.08496"
+                      cy="9.75977"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="2.08496"
+                      cy="2.75977"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="2.08496"
+                      cy="16.7598"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_21987">
+                      <rect
+                        width="4"
+                        height="18"
+                        fill="white"
+                        transform="translate(0.0849609 0.759766)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <!-- row two -->
+            <div class="record-data flex">
+              <div class="flex first-col">
+                <img src="./images/profile-2.png" class="record-profil-pic" />
+                <p class="profile-txt">FedEx</p>
+              </div>
+              <div class="second-col">
+                <p>20/03/2020</p>
+              </div>
+              <div class="flex third-col">
+                <div class="progress-dot completed-dot"></div>
+                <p>Completed</p>
+              </div>
+              <div class="flex fourth-col">
+                <p>200</p>
+              </div>
+              <div class="fifth-col">
+                <img src="./images/oval-1.png" />
+                <img src="./images/oval-5.png" />
+                <img src="./images/oval-2.png" />
+              </div>
+              <div class="flex sixth-col">
+                <p>100%</p>
+                <div class="progress-bar">
+                  <div class="fill fill-green-2"></div>
+                </div>
+              </div>
+              <a class="more-btn" href="javascript:void(0)">
+                <svg
+                  width="5"
+                  height="19"
+                  viewBox="0 0 5 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1_21987)">
+                    <circle
+                      cx="2.08496"
+                      cy="9.75977"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="2.08496"
+                      cy="2.75977"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="2.08496"
+                      cy="16.7598"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_21987">
+                      <rect
+                        width="4"
+                        height="18"
+                        fill="white"
+                        transform="translate(0.0849609 0.759766)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+            <!-- row three -->
+            <div class="record-data flex">
+              <div class="flex first-col">
+                <img src="./images/profile-3.png" class="record-profil-pic" />
+                <p class="profile-txt">FedEx</p>
+              </div>
+              <div class="second-col">
+                <p>20/03/2020</p>
+              </div>
+              <div class="flex third-col">
+                <div class="progress-dot schedule-dot"></div>
+                <p>On Schedule</p>
+              </div>
+              <div class="flex fourth-col">
+                <p>133</p>
+              </div>
+              <div class="fifth-col">
+                <img src="./images/oval-1.png" />
+                <img src="./images/oval-5.png" />
+                <img src="./images/oval-2.png" />
+              </div>
+              <div class="flex sixth-col">
+                <p>90%</p>
+                <div class="progress-bar">
+                  <div class="fill fill-blue-2"></div>
+                </div>
+              </div>
+              <a class="more-btn" href="javascript:void(0)">
+                <svg
+                  width="5"
+                  height="19"
+                  viewBox="0 0 5 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clip-path="url(#clip0_1_21987)">
+                    <circle
+                      cx="2.08496"
+                      cy="9.75977"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="2.08496"
+                      cy="2.75977"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <circle
+                      cx="2.08496"
+                      cy="16.7598"
+                      r="1"
+                      stroke="#FCFDFF"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_21987">
+                      <rect
+                        width="4"
+                        height="18"
+                        fill="white"
+                        transform="translate(0.0849609 0.759766)"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </section>
+        <!-- Sxith graph section -->
+        <section class="graph-section main-wrapper-2">
+          <div class="graph-wrap flex">
+            <!-- graph 1 -->
+            <div class="graph-1">
+              <div class="graph-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="info"
+                  width="28"
+                  height="28"
+                >
+                  <g fill="#231f20">
+                    <path
+                      d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                      fill="#939DAC"
+                    ></path>
+                    <path
+                      d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                      fill="#939DAC"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+
+              <div class="graph-wrapper">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="txt-white graph-para">INBOUND VS OUTBOUND</p>
+                <canvas id="myChart" class="bar-graph-1"></canvas>
+              </div>
+            </div>
+            <!-- graph 2 -->
+            <div class="graph-1">
+              <div class="graph-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="info"
+                  width="28"
+                  height="28"
+                >
+                  <g fill="#231f20">
+                    <path
+                      d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                      fill="#939DAC"
+                    ></path>
+                    <path
+                      d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                      fill="#939DAC"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="graph-wrapper">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="txt-white graph-para">TYPES OF PALLET</p>
+                <canvas id="myChart1" class="bar-graph-1"></canvas>
+              </div>
+            </div>
+            <!-- graph 3 -->
+            <div class="graph-3">
+              <div class="graph-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="info"
+                  width="28"
+                  height="28"
+                >
+                  <g fill="#231f20">
+                    <path
+                      d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                      fill="#939DAC"
+                    ></path>
+                    <path
+                      d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                      fill="#939DAC"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="graph-wrapper">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="txt-white graph-para">SUPPLIER CONTRIBUTION</p>
+                <canvas id="myChart2" class="bar-graph-1"></canvas>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- section seven -->
+        <section class="main-wrapper-2">
+          <div class="graph-wrap flex">
+            <div class="graph-1">
+              <div class="graph-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="info"
+                  width="28"
+                  height="28"
+                >
+                  <g fill="#231f20">
+                    <path
+                      d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                      fill="#939DAC"
+                    ></path>
+                    <path
+                      d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                      fill="#939DAC"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="graph-wrapper">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="txt-white graph-para">PERFRECT ORDER FULFILLMENT</p>
+                <canvas id="myLineChart" class="bar-graph-1"></canvas>
+              </div>
+            </div>
+
+            <div class="graph-1">
+              <div class="graph-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="info"
+                  width="28"
+                  height="28"
+                >
+                  <g fill="#231f20">
+                    <path
+                      d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                      fill="#939DAC"
+                    ></path>
+                    <path
+                      d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                      fill="#939DAC"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="graph-wrapper">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="txt-white graph-para">RETURNABLE ASSETS REFUND</p>
+                <canvas id="myLineChart2" class="bar-graph-1"></canvas>
+              </div>
+            </div>
+
+            <div class="graph-3">
+              <div class="graph-svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="info"
+                  width="28"
+                  height="28"
+                >
+                  <g fill="#231f20">
+                    <path
+                      d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                      fill="#939DAC"
+                    ></path>
+                    <path
+                      d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                      fill="#939DAC"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="graph-wrapper">
+                <p class="perform-txt">PERFORMANCE</p>
+                <p class="txt-white graph-para">ON TIME DELIVERY</p>
+                <div class="piechart-wrap">
+                  <canvas id="piechart" class="bar-graph-1"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- section eight -->
+        <section class="chart-tag-section main-wrapper-2">
+          <div class="chart-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              id="info"
+              width="28"
+              height="28"
+            >
+              <g fill="#231f20">
+                <path
+                  d="M8 2a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 11a5 5 0 1 1 5-5 5 5 0 0 1-5 5Z"
+                  fill="#939DAC"
+                ></path>
+                <path
+                  d="M8 6.85a.5.5 0 0 0-.5.5v3.4a.5.5 0 0 0 1 0v-3.4a.5.5 0 0 0-.5-.5zM8 4.8a.53.53 0 0 0-.51.52v.08a.47.47 0 0 0 .51.47.52.52 0 0 0 .5-.5v-.12A.45.45 0 0 0 8 4.8z"
+                  fill="#939DAC"
+                ></path>
+              </g>
+            </svg>
+          </div>
+          <div class="tag-heading">
+            <p>CHART TAGS</p>
+          </div>
+          <div class="tag-wrap flex">
+            <div class="search-box mr">
+              <input type="text" class="search-input" placeholder="Search" />
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="search-icon"
+              >
+                <g opacity="0.8" clip-path="url(#clip0_1_21827)">
+                  <circle
+                    cx="7.69006"
+                    cy="7.69006"
+                    r="6.88"
+                    stroke="#172B4D"
+                    stroke-width="1.62"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <line
+                    x1="14.7758"
+                    y1="16.1899"
+                    x2="11.8666"
+                    y2="13.2807"
+                    stroke="#172B4D"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1_21827">
+                    <rect width="16.5355" height="16.5355" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+            <div class="flex">
+              <div class="selected-tag flex">
+                <p class="tag-text">
+                  Inbound vs outbound <span class="close-mark">X</span>
+                </p>
+              </div>
+              <div class="selected-tag flex">
+                <p class="tag-text">
+                  Types of Pallet <span class="close-mark">X</span>
+                </p>
+              </div>
+              <div class="selected-tag flex">
+                <p class="tag-text">
+                  Supplier Contribution <span class="close-mark">X</span>
+                </p>
+              </div>
+              <div class="selected-tag flex">
+                <p class="tag-text">
+                  Perfect Order Fulfillment <span class="close-mark">X</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
